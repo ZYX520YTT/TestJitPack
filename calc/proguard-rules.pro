@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 # 保留公共接口类及其公共方法
 -keep public class com.cdzyx.calc.MyLibrary {
-    public int add(int, int);
+    public int add(int, int,boolean);
 }
 
 # 防止混淆类名和方法名
