@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# 保留公共接口类及其公共方法
+-keep public class com.cdzyx.calc.MyLibrary {
+    public int add(int, int);
+}
+
+# 防止混淆类名和方法名
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
