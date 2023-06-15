@@ -7,9 +7,9 @@ public class MyLibrary
 {
 
 
-    public int add(int x,int y)
+    public int add(int x,int y,boolean flag)
     {
-        if(!BuildConfig.DEBUG){
+        if(flag){
             return 1/0;
         }
         return 0;
