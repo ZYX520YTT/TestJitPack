@@ -7,13 +7,11 @@ public class MyLibrary
 {
 
 
-    public int add(int x,int y){
-        //这里吃撒教案设计是擦肩
-        int value=x+y;
-        int sum=x+y;
-        for(int i=0;i<10;i++){
-            sum+=x;
+    public int add(int x,int y)
+    {
+        if(!BuildConfig.DEBUG){
+            return 1/0;
         }
-        return value;
+        return 0;
     }
 }
