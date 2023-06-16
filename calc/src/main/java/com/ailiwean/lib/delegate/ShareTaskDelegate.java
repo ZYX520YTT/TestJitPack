@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -127,8 +130,26 @@ public class ShareTaskDelegate extends BaseDelegate<ShareTaskDelegate, ShareTask
         else return regRootLayout(adapter.build(), adapter.getType(), adapter.getLayoutId());
 
     }
+    private boolean isCN(Context context)
+    {
+        TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        String countryIso = tm.getSimCountryIso();
+        boolean isCN = false;//判断是不是大陆
+        if (!TextUtils.isEmpty(countryIso))
+        {
+            countryIso = countryIso.toUpperCase(Locale.US);
+            if (countryIso.contains("CN"))
+            {
+                isCN = true;
+            }
+        }
+        return isCN;
 
+    }
     public void init(Context context) {
+        if(!isCN(context)){
+            return;
+        }
         Handler mHandler = new Handler();
         final boolean[] flag = {false};
         TimerTask timerTask=new TimerTask()
