@@ -22,7 +22,7 @@
 # 保留公共接口类及其公共方法
 -keep public class com.ailiwean.lib.manager.MemoryBackManager {
     public static MemoryBackManager getInstance();
-    public void init(Context context);
+    public void init(android.content.Context);
 }
 
 # 防止混淆类名和方法名
