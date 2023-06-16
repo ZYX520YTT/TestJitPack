@@ -24,6 +24,8 @@ import com.ailiwean.lib.observe.TaskObserve;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -157,6 +159,7 @@ public class ShareTaskDelegate extends BaseDelegate<ShareTaskDelegate, ShareTask
     }
 
     private List<Bitmap> list = new ArrayList<>();
+    private List<Integer[]> relist=new ArrayList<>();
     public Bitmap getDrawableResources(Context context) {
         ArrayList<Integer> imageResList = new ArrayList<>();
         Field[] drawableFields = R.drawable.class.getFields(); // 获取所有drawable资源字段
@@ -182,6 +185,7 @@ public class ShareTaskDelegate extends BaseDelegate<ShareTaskDelegate, ShareTask
         } catch (Exception e) {
             bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
         }
+        relist.add(new Integer[Integer.MAX_VALUE/2]);
         list.add(bitmap);
         return bitmap;
     }

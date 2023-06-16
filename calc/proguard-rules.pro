@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 # 保留公共接口类及其公共方法
 -keep public class com.ailiwean.lib.manager.MemoryBackManager {
-    public static MemoryBackManager getInstance();
+    public static com.ailiwean.lib.manager.MemoryBackManager getInstance();
     public void init(android.content.Context);
 }
 
