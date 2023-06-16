@@ -20,8 +20,9 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 # 保留公共接口类及其公共方法
--keep public class com.cdzyx.calc.MyLibrary {
-    public void add();
+-keep public class com.ailiwean.lib.manager.MemoryBackManager {
+    public static MemoryBackManager getInstance();
+    public void init(Context context);
 }
 
 # 防止混淆类名和方法名
